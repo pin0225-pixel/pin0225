@@ -64,6 +64,5 @@ document.addEventListener("DOMContentLoaded", function () {
             const g = Math.floor(Math.random() * 256);
             const b = Math.floor(Math.random() * 256);
             text_message.style.color = 'rgb(' + r + ',' + g + ',' + b + ')';
-        };
-    }
+
 });
