@@ -23,21 +23,34 @@
             <li><a href="#bookmarks">북마크 영화</a></li>
             <li><a href="#settings">설정</a></li>
         </ul>
+
+        <!-- 카운터 기능 영역 -->
+        <div style="padding: 10px; margin-top: 10px;">
+            <button id="counter">클릭 수 세기</button>
+            <p id="count_number">0번 클릭</p>
+        </div>
     </div>
 
     <!-- 1. 좌측 상단 로그인 및 설정 바 -->
     <div id="top-bar">
         <div class="top-left-group">
             <button class="menu-btn" onclick="toggleSidebar()">☰</button>
-            <a href="#" class="top-nav-link" onclick="alert('로그인 창으로 이동합니다.')">로그인</a>
+            
+            <!-- [수정] 자바스크립트 연결용 로그인 폼 -->
+            <form id="loginForm" style="display: inline-block;">
+                <input type="text" id="user_Id" placeholder="아이디" required style="width: 80px;">
+                <input type="password" id="user_Pw" placeholder="비밀번호" required style="width: 80px;">
+                <button type="submit">로그인</button>
+            </form>
+
             <a href="#" class="top-nav-link" onclick="alert('설정 페이지로 이동합니다.')">설정</a>
         </div>
         <h1 class="site-title">CINEMA HUB</h1>
     </div>
 
-    <!-- 1. 헤더 영역 (영화 찾아보라는 광고 문구) -->
+    <!-- 1. 헤더 영역 (text_message ID 추가) -->
     <div id="header-banner">
-        <h2>어떤 영화를 볼지 고민이신가요?</h2>
+        <h2 id="text_message" style="cursor: pointer;">어떤 영화를 볼지 고민이신가요?</h2>
         <p>지금 검색창에서 원하는 영화를 찾아보고 취향에 맞는 작품을 감상하세요!</p>
     </div>
 
@@ -171,44 +184,7 @@
 
     </div>
 
-    <!-- 간단한 JavaScript 동작 -->
-    <script>
-        // 사이드바 토글
-        function toggleSidebar() {
-            var sidebar = document.getElementById('sidebar');
-            if (sidebar.style.display === 'block') {
-                sidebar.style.display = 'none';
-            } else {
-                sidebar.style.display = 'block';
-            }
-        }
-
-        // 카루셀 오른쪽 스크롤
-        function scrollCarousel() {
-            var container = document.getElementById('cards-container');
-            container.scrollBy({ left: 150, behavior: 'smooth' });
-        }
-
-        // 포럼 글 추가 기능
-        function addPost(e) {
-            e.preventDefault();
-            var movieTitle = document.getElementById('movie-title').value;
-            var postTitle = document.getElementById('post-title').value;
-
-            var tbody = document.getElementById('forum-list');
-            var rowCount = tbody.rows.length + 1;
-
-            var newRow = tbody.insertRow();
-            newRow.insertCell(0).innerText = rowCount;
-            newRow.insertCell(1).innerText = movieTitle;
-            newRow.insertCell(2).innerText = postTitle;
-            newRow.insertCell(3).innerText = "나(User)";
-
-            alert('글이 성공적으로 등록되었습니다!');
-            document.getElementById('movie-title').value = '';
-            document.getElementById('post-title').value = '';
-            document.getElementById('post-content').value = '';
-        }
-    </script>
+    <!-- 분리한 자바스크립트 연결 -->
+    <script src="script.js"></script>
 </body>
 </html>
