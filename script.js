@@ -54,7 +54,10 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
+
+document.addEventListener("DOMContentLoaded", function () {
     let text_message = document.querySelector('#text_message');
+    
     if (text_message) {
         text_message.onclick = function () {
             const r = Math.floor(Math.random() * 256);
